@@ -11,8 +11,8 @@ namespace Emoloyee
 {
     public partial class Form2 : Form
     {
-
-        SqlConnection con = new SqlConnection("data source=DESKTOP-IEPVL3O\\SQLEXPRESS; database=Project; uid=sa; password=Shivam123;");
+         //Enter Your Database Creds Here
+        SqlConnection con = new SqlConnection("");
 
         private Form parentForm;
         public Form2(Form parentForm)
