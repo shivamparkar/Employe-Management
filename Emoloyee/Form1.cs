@@ -19,8 +19,8 @@ namespace Emoloyee
     public partial class Form1 : Form
     {
 
-        //string conn = ConfigurationManager.ConnectionStrings();
-        SqlConnection con = new SqlConnection("data source=DESKTOP-IEPVL3O\\SQLEXPRESS; database=Project; uid=sa; password=Shivam123;");
+        //Enter your Creds Here
+        SqlConnection con = new SqlConnection("");
         public Form1()
         {
             InitializeComponent();
@@ -72,23 +72,17 @@ namespace Emoloyee
 
         }
 
-
+        //Global Variable
         private int additionalFieldsCount = 0;
-
-        //private List<Label> labels = new List<Label>();
-        //private List<TextBox> textBoxes = new List<TextBox>();
-
-
         private TextBox Phone;
         private TextBox Email;
         private ComboBox Role;
         private ComboBox Deparement;
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             additionalFieldsCount++;
-
+            //Dyanamic button to add more
             Label label1 = new Label();
             label1.Text = "Phone Number";
             label1.Location = new Point(125 + additionalFieldsCount * 30, 270);
@@ -136,9 +130,6 @@ namespace Emoloyee
             List<string> DeparmentList = FetchDeparment();
             Deparement.DataSource = DeparmentList;
 
-
-
-
             this.Controls.Add(label1);
             this.Controls.Add(Phone);
 
@@ -154,6 +145,8 @@ namespace Emoloyee
 
         }
 
+
+        //Fetching Data from role Table 
         private List<string> FetchRoleDataFromDatabase()
         {
             List<string> roles = new List<string>();
@@ -189,6 +182,7 @@ namespace Emoloyee
         }
 
 
+        //Fetching data for Department Table
         private List<string> FetchDeparment()
         {
             List<string> Department = new List<string>();
@@ -264,7 +258,7 @@ namespace Emoloyee
                         MessageBox.Show("Your Recorded Save Successfully");
                         this.Hide();
                         Form2 f2 = new Form2(this);
-                        f2.ShowDialog();
+                        f2.ShowDialog();  //Here if the submission is successful then it will redirect to form2 
                     
                 }
                 else
@@ -286,7 +280,7 @@ namespace Emoloyee
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "yyyy";
+            dateTimePicker1.CustomFormat = "yyyy";   //for year format
         }
 
         void reset()
